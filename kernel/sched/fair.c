@@ -9164,7 +9164,7 @@ static inline void update_sg_wakeup_stats(struct sched_domain *sd,
 
 	/* Check if task fits in the group */
 	if (sd->flags & SD_ASYM_CPUCAPACITY &&
-	    !task_fits_capacity(p, group->sgc->max_capacity, cpu)) {
+	    !task_fits_capacity(p, group->sgc->max_capacity, i)) {
 		sgs->group_misfit_task_load = 1;
 	}
 
