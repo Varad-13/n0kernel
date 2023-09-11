@@ -8225,7 +8225,7 @@ redo:
 
 		case migrate_misfit:
 			/* This is not a misfit task */
-			if (task_fits_capacity(p, capacity_of(env->src_cpu)))
+			if (task_fits_capacity(p, capacity_of(env->src_cpu), env->src_cpu))
 				goto next;
 
 			env->imbalance = 0;
@@ -9164,7 +9164,7 @@ static inline void update_sg_wakeup_stats(struct sched_domain *sd,
 
 	/* Check if task fits in the group */
 	if (sd->flags & SD_ASYM_CPUCAPACITY &&
-	    !task_fits_capacity(p, group->sgc->max_capacity)) {
+	    !task_fits_capacity(p, group->sgc->max_capacity, cpu)) {
 		sgs->group_misfit_task_load = 1;
 	}
 
